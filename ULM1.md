@@ -26,7 +26,7 @@ classDiagram
     class Hotel {
         -string nombre
         -vector<Habitacion> habitaciones
-        -vector<Cliente> clientes
+        -vector<Cliente*> clientes
         +Hotel(string)
         +~Hotel()
         +void agregarHabitacion(int, string)
@@ -35,5 +35,5 @@ classDiagram
     }
 
     Hotel *-- Habitacion
-    Hotel *-- Cliente
+    Hotel o-- Cliente
 ```
