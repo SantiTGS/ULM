@@ -1,4 +1,5 @@
 ```mermaid
+
 class MagicalCreature {
     - string name
     - int vitalidad
