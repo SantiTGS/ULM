@@ -2,82 +2,88 @@
 classDiagram
 
 class MagicalCreature {
-    + name
-    + vitalidad
-    + poder
-    + getName()
-    + getVitalidad()
-    + getPoder()
-    + reducirVitalidad()
-    + recibirAtaque()
-    + mostrar()
-    + actuar()
-    + reproducirse()
-    + morir()
-    + mutar()
-    + serializar()
+    - string name
+    - int vitalidad
+    - int poder
+    + MagicalCreature(string name, int vitalidad, int poder)
+    + string getName()
+    + int getVitalidad()
+    + int getPoder()
+    + void reducirVitalidad(int fuerza)
+    + virtual void recibirAtaque(int dano)
+    + virtual void mostrar() const
+    + virtual void actuar()
+    + virtual void reproducirse()
+    + virtual void morir()
+    + virtual void mutar()
+    + virtual json serializar() const
 }
 
 class Dragon {
-    + fireResistance
-    + recibirAtaque()
-    + mostrar()
-    + actuar()
-    + reproducirse()
-    + morir()
-    + mutar()
-    + serializar()
+    - int fireResistance
+    + Dragon(string name, int vitalidad, int poder, int fireResistance)
+    + override void recibirAtaque(int dano)
+    + override void mostrar() const
+    + override void actuar()
+    + override void reproducirse()
+    + override void morir()
+    + override void mutar()
+    + override json serializar() const
 }
 
 class Hada {
-    + healingPower
-    + recibirAtaque()
-    + mostrar()
-    + actuar()
-    + reproducirse()
-    + morir()
-    + mutar()
-    + serializar()
+    - int healingPower
+    + Hada(string name, int vitalidad, int poder, int healingPower)
+    + override void recibirAtaque(int dano)
+    + override void mostrar() const
+    + override void actuar()
+    + override void reproducirse()
+    + override void morir()
+    + override void mutar()
+    + override json serializar() const
 }
 
 class Quimera {
-    + ferocidad
-    + recibirAtaque()
-    + mostrar()
-    + actuar()
-    + reproducirse()
-    + morir()
-    + mutar()
-    + serializar()
+    - int ferocidad
+    + Quimera(string name, int vitalidad, int poder, int fireResistance, int healingPower, int ferocidad)
+    + override void recibirAtaque(int dano)
+    + override void mostrar() const
+    + override void actuar()
+    + override void reproducirse()
+    + override void morir()
+    + override void mutar()
+    + override json serializar() const
 }
 
 class Nodo {
-    + id
-    + pulso_vital
-    + estado
-    + criaturas
-    + getId()
-    + getPulsoVital()
-    + getEstado()
-    + mostrarCriaturas()
-    + setPulsoVital()
-    + setEstado()
-    + agregarCriatura()
-    + eliminarCriatura()
-    + vaciarse()
-    + serializar()
+    - int id
+    - bool pulso_vital
+    - string estado
+    - vector<MagicalCreature*> criaturas
+    + Nodo(int id)
+    + int getId()
+    + bool getPulsoVital()
+    + string getEstado()
+    + void mostrarCriaturas()
+    + void setPulsoVital(bool pulso)
+    + void setEstado(string est)
+    + void agregarCriatura(MagicalCreature* creature)
+    + void eliminarCriatura(MagicalCreature* creature)
+    + void vaciarse()
+    + json serializar() const
 }
 
 class Mapa {
-    + filas
-    + columnas
-    + grid
-    + obtenerNodo()
-    + mostrarMapa()
-    + actualizarAmbiente()
-    + simularCiclo()
-    + guardarEstado()
-    + cargarEstado()
+    - int filas
+    - int columnas
+    - vector<vector<Nodo>> grid
+    + Mapa(int filas, int columnas)
+    + Nodo& obtenerNodo(int x, int y)
+    + void mostrarMapa()
+    + void actualizarAmbiente()
+    + void simularCiclo()
+    + void guardarEstado(string archivo)
+    + void cargarEstado(string archivo)
 }
 
 MagicalCreature <|-- Dragon
