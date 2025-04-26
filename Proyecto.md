@@ -1,4 +1,4 @@
-```mermaid
+@startuml
 
 class MagicalCreature {
     - string name
@@ -89,4 +89,5 @@ MagicalCreature <|-- Dragon : virtual
 MagicalCreature <|-- Hada : virtual
 Dragon <|-- Quimera
 Hada <|-- Quimera
-```
+
+@enduml
