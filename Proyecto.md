@@ -73,19 +73,6 @@ class Nodo {
     + json serializar() const
 }
 
-class Mapa {
-    - int filas
-    - int columnas
-    - vector<vector<Nodo>> grid
-    + Mapa(int filas, int columnas)
-    + Nodo& obtenerNodo(int x, int y)
-    + void mostrarMapa()
-    + void actualizarAmbiente()
-    + void simularCiclo()
-    + void guardarEstado(string archivo)
-    + void cargarEstado(string archivo)
-}
-
 MagicalCreature <|-- Dragon
 MagicalCreature <|-- Hada
 Dragon <|-- Quimera
